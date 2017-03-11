@@ -167,6 +167,44 @@ docker build -t eb .
 build 후, ```docker images```로 확인  
 기존에 만들었던 ```eb``` image 가 ```<none>``` 으로 바뀌고 새로운 ```eb```가 생성된 것 확인 가능  
 
+## Step 6
+```Dockerfile``` 수정  
+
+```
+FROM    eb-base
+MAINTAINER dev@zelf.com
+
+COPY . /srv/app
+WORKDIR /srv/app
+
+RUN pip3 install -r requirements.txt
+RUN pip3 install uwsgi
+WORKDIR /srv/app/django_app
+CMD ["python3", "manage.py", "runserver", "0:8080"]
+```
+현재 경로를 `/srv/app` 로 copy  
+working directory 를 `/srv/app` 으로 설정  
+다시 build   
+`docker build -t eb .`  
+`requirements.txt` 를 통해 `Django` 설치  
+`uwsgi` 도 설치  
+working directory 를 `/srv/app/django_app` 으로 변경  
+`8080` 포트를 통해 runserver 하도록 `CMD` 추가  
+
+다시 build  
+```
+docker build . -t eb
+```
+
+```
+docker run -p 5678:8080 eb
+```
+위 명령어 입력  
+`8080` 이 docker 내부 포트  
+`5678` 이 현재 컴퓨터의 포트  
+`localhost:5678` 로 들어가서 django 메인화면 나오는지 확인  
+
+
 
 ## Docker 명령어
 ### image 삭제
@@ -185,6 +223,9 @@ build 후, ```docker images```로 확인
 
 #### 접속 후 쉘 실행하고 싶은 경우
 ```docker exec -it [container id] /bin/bash```
+
+### 연결된 port 확인
+```docker ps```
 
 
 
