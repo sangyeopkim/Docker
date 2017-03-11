@@ -104,9 +104,11 @@ WORKDIR /srv/app
 ```
 docker run --rm -it eb /bin/bash
 ```
+
 이 명령어를 통해 docker run을 실행하는 image 가 ```eb``` 라는 뜻  
 ```eb``` image 로 container 가 생성된 것  
 여기서는 ```python3``` 와 ```pip3``` 가 있음을 확인 가능  
+
 > 이런식으로 image를 만들어 놓으면 container를 열 때 마다 따로 설치할 필요 없이 있는 상태 그대로를 사용할 수 있음  
 
 Docker image는 생성되어 있는 image 가 있으면 image를 생성할 때 마다 계속 덮어씌우면서 작업을 실행함  
@@ -131,9 +133,12 @@ RUN apt-get -y install nginx
 docker build . -t eb-base -f _Dockerfile_base
 ```
 
+
 ```docker images``` 를 통해 ```eb-base``` 생성된 것 확인 가능  
 
+
 ```eb-base``` 를 기준으로 작업을 하기 위해 ```Dockerfile``` 수정 
+
  
 ```
 FROM    eb-base	
@@ -150,6 +155,7 @@ WORKDIR /srv/app
 ```
 
 다시 build  
+
 ```
 docker build -t eb . 
 ```
