@@ -145,6 +145,7 @@ WORKDIR /srv
 RUN mkdir app
 WORKDIR /srv/app
 ```
+
 다시 build  
 ```
 docker build -t eb . 
