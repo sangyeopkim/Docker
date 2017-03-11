@@ -133,10 +133,10 @@ docker build . -t eb-base -f _Dockerfile_base
 ```eb-base``` 를 기준으로 작업을 하기 위해 ```Dockerfile``` 수정 
  
 ```
-FROM    eb-base			-> 이 부분 수정
+FROM    eb-base	
 MAINTAINER dev@zelf.com
 
-#RUN apt-get -y update				-> 아래 4줄 주석처리
+#RUN apt-get -y update		
 #RUN apt-get -y install python3
 #RUN apt-get -y install python3-pip
 #RUN apt-get -y install nginx
