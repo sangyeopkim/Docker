@@ -115,7 +115,9 @@ Docker image는 생성되어 있는 image 가 있으면 image를 생성할 때 �
 그렇기 때문에 추가 작업이 필요할 때 마다 build 를 하게 되면 ```Dockerfile``` 에 있는 ```RUN``` 명령어를 계속해서 실행해야 하는 불편함이 있음  
 이를 해결하기 위해 ```_Dockerfile_base``` 파일을 추가하고 기본적인 작업들을 따로 관리해 준다  
 
-```_Dockerfile_base```
+
+`_Dockerfile_base`
+
 
 ```
 FROM    ubuntu:16.04
