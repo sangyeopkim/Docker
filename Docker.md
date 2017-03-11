@@ -139,7 +139,7 @@ docker build . -t eb-base -f _Dockerfile_base
 
 ```eb-base``` 를 기준으로 작업을 하기 위해 ```Dockerfile``` 수정 
 
- 
+
 ```
 FROM    eb-base	
 MAINTAINER dev@zelf.com
@@ -152,7 +152,9 @@ MAINTAINER dev@zelf.com
 WORKDIR /srv
 RUN mkdir app
 WORKDIR /srv/app
+
 ```
+
 
 다시 build  
 
