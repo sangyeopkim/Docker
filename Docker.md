@@ -126,10 +126,13 @@ RUN apt-get -y install nginx
 ```
 
 그 다음 아래 명령어를 통해 ```_Dockerfile_base```를 기준으로 ```eb-base``` 라는 image 를 생성  
+
 ```
 docker build . -t eb-base -f _Dockerfile_base
 ```
+
 ```docker images``` 를 통해 ```eb-base``` 생성된 것 확인 가능  
+
 ```eb-base``` 를 기준으로 작업을 하기 위해 ```Dockerfile``` 수정 
  
 ```
