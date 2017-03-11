@@ -225,7 +225,8 @@ docker run -p 5678:8080 eb
 ```docker exec -it [container id] /bin/bash```
 
 ### 연결된 port 확인
-```docker ps```
+```docker ps```  
+```docker ps -a```
 
 
 
